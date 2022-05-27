@@ -6,13 +6,12 @@ function ItemListContainer() {
     let greetings = 'Buenos saludos'
 
     return (
-        <Container className='saludos mh-100'>
+        <Container className='saludos'>
             <Row>
                 <Col>
                     <h3 className='saludo'>{greetings}</h3>
                 </Col>
             </Row>
-
         </Container>
     )
 }
