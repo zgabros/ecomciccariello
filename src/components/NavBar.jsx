@@ -15,7 +15,6 @@ function NavBar() {
                         alt="React logo"/> {' '}
                         eCommerce
                 </Navbar.Brand>
-                
                 <Navbar.Toggle aria-controls="basic-navbar-nav"/>
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
@@ -23,7 +22,7 @@ function NavBar() {
                         <Nav.Link href="#link">Link</Nav.Link>
                         <Nav.Link href="#link">Link 2</Nav.Link>
                     </Nav>
-                    <CartWidget></CartWidget>
+                    <CartWidget/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
