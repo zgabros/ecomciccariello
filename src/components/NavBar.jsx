@@ -2,7 +2,8 @@ import logo from '../logo.svg';
 import {Container, Nav, Navbar} from 'react-bootstrap';
 import CartWidget from './CartWidget';
 
-function NavBar() {
+function NavBar({item}) {
+   
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -22,7 +23,7 @@ function NavBar() {
                         <Nav.Link href="#link">Link</Nav.Link>
                         <Nav.Link href="#link">Link 2</Nav.Link>
                     </Nav>
-                    <CartWidget/>
+                    <CartWidget item={item}/>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

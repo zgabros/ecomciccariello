@@ -1,15 +1,15 @@
 import React from 'react'
 import './ItemListContainer.css'
 import {Container, Row, Col} from 'react-bootstrap'
+import ItemListMostrar from './ItemListMostrar'
 
-function ItemListContainer() {
-    let greetings = 'Buenos saludos'
+function ItemListContainer( {greetings} ) {
 
     return (
         <Container className='saludos'>
             <Row>
                 <Col>
-                    <h3 className='saludo'>{greetings}</h3>
+                   <ItemListMostrar greetings={greetings}/>
                 </Col>
             </Row>
         </Container>
