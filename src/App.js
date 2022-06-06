@@ -1,17 +1,19 @@
-import './App.css';
-import ItemListContainer from './components/ItemListContainer';
-import NavBar from './components/NavBar';
+import { useEffect, useState } from "react";
+import "./App.css";
+import ItemListContainer from "./components/ItemListContainer";
+import NavBar from "./components/NavBar";
 
 function App() {
-    let item = 4
-    let greetings = 'visitante.'
+  const [item, setItem] = useState(0);
 
-    return (
-        <div className='App'>
-            <NavBar item={item}/>
-            <ItemListContainer greetings={greetings}/>
-        </div>
-    );
+  let greetings = "visitante.";
+
+  return (
+    <div className="App">
+      <NavBar item={item} />
+      <ItemListContainer greetings={greetings} item={item} setItem={setItem} />
+    </div>
+  );
 }
 
 export default App;
