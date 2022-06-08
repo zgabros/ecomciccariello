@@ -1,0 +1,46 @@
+{
+  "articulos": [
+    {
+      "id": 1,
+      "nombre": "Camisa",
+      "precio": "300",
+      "stock": 8,
+      "img": "https://placedog.net/640/480?random"
+    },
+    {
+      "id": 2,
+      "nombre": "Jean",
+      "precio": "400",
+      "stock": 9,
+      "img": "https://placedog.net/640/480?random"
+    },
+    {
+      "id": 3,
+      "nombre": "Gorro",
+      "precio": "100",
+      "stock": 10,
+      "img": "https://placedog.net/640/480?random"
+    },
+    {
+      "id": 4,
+      "nombre": "Guantes",
+      "precio": "80",
+      "stock": 18,
+      "img": "https://placedog.net/640/480?random"
+    },
+    {
+      "id": 5,
+      "nombre": "Bufanda",
+      "precio": "100",
+      "stock": 16,
+      "img": "https://placedog.net/640/480?random"
+    },
+    {
+      "id": 6,
+      "nombre": "TShirt",
+      "precio": "200",
+      "stock": 7,
+      "img": "https://placedog.net/640/480?random"
+    }
+  ]
+}

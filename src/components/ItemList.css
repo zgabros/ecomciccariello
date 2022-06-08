@@ -1,0 +1,10 @@
+.contenedorTarjetas {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+}
+
+article {
+  min-width: 18em;
+}

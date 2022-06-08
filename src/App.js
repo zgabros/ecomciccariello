@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 function App() {
   const [item, setItem] = useState(0);
 
-  let greetings = "visitante.";
+  let greetings = "la tienda.";
 
   return (
     <div className="App">
