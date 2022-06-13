@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Card, ListGroup, ListGroupItem } from "react-bootstrap";
+import { Button, Card, ListGroup } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function Item({ item }) {
   const { nombre, img, precio, stock } = item;
@@ -12,7 +13,9 @@ function Item({ item }) {
           Precio: {precio}
         </Card.Subtitle>
         <ListGroup>
-          <Button>Ver detalles</Button>
+          <Button as={Link} to={`/product/${nombre}`}>
+            Ver detalles
+          </Button>
         </ListGroup>
       </Card.Body>
       <Card.Footer className="text-muted">Stock: {stock}</Card.Footer>

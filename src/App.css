@@ -1,3 +1,18 @@
 .App {
   text-align: center;
 }
+
+.saludos {
+  background-color: #282c34;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.saludo {
+  color: aliceblue;
+}

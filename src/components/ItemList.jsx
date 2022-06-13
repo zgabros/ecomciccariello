@@ -8,7 +8,8 @@ function ItemList({ loading, error, resultado }) {
       <div>{loading && "Cargando"}</div>
       <div>{error && "error"}</div>
       <article className="contenedorTarjetas">
-        {resultado && resultado.map((item) => <Item item={item} />)}
+        {resultado &&
+          resultado.map((item) => <Item key={item.id} item={item} />)}
       </article>
     </>
   );

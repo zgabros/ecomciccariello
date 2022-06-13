@@ -1,46 +1,56 @@
-{
-  "articulos": [
-    {
-      "id": 1,
-      "nombre": "Camisa",
-      "precio": "300",
-      "stock": 8,
-      "img": "https://placedog.net/640/480?random"
-    },
-    {
-      "id": 2,
-      "nombre": "Jean",
-      "precio": "400",
-      "stock": 9,
-      "img": "https://placedog.net/640/480?random"
-    },
-    {
-      "id": 3,
-      "nombre": "Gorro",
-      "precio": "100",
-      "stock": 10,
-      "img": "https://placedog.net/640/480?random"
-    },
-    {
-      "id": 4,
-      "nombre": "Guantes",
-      "precio": "80",
-      "stock": 18,
-      "img": "https://placedog.net/640/480?random"
-    },
-    {
-      "id": 5,
-      "nombre": "Bufanda",
-      "precio": "100",
-      "stock": 16,
-      "img": "https://placedog.net/640/480?random"
-    },
-    {
-      "id": 6,
-      "nombre": "TShirt",
-      "precio": "200",
-      "stock": 7,
-      "img": "https://placedog.net/640/480?random"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "nombre": "Camisa",
+    "precio": "300",
+    "stock": 8,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "hombres",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  },
+  {
+    "id": 2,
+    "nombre": "Pantalon",
+    "precio": "200",
+    "stock": 10,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "hombres",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  },
+  {
+    "id": 3,
+    "nombre": "Zapatos",
+    "precio": "100",
+    "stock": 5,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "mujeres",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  },
+  {
+    "id": 4,
+    "nombre": "Bufanda",
+    "precio": "100",
+    "stock": 5,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "hombres",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  },
+  {
+    "id": 5,
+    "nombre": "Gorrito",
+    "precio": "100",
+    "stock": 5,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "niños",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  },
+  {
+    "id": 6,
+    "nombre": "Pollera",
+    "precio": "500",
+    "stock": 5,
+    "img": "https://placedog.net/640/470?random",
+    "categoria": "mujeres",
+    "descripcion": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis."
+  }
+]

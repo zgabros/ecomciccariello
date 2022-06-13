@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./ItemListContainer.css";
-import { Container, Row, Col } from "react-bootstrap";
-import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import "./ItemListContainer.css";
 
-function ItemListContainer({ greetings }) {
+function ItemListContainer() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [resultado, setResultado] = useState([]);
@@ -75,20 +75,14 @@ function ItemListContainer({ greetings }) {
   ];
 
   useEffect(() => {
-    setLoading(true);
-    setError(false);
-    setResultado([]);
-    const data = new Promise((res, rej) => {
-      setTimeout(() => {
-        // res(misDatos);
-        !category
-          ? res(misDatos)
-          : res(misDatos.filter((x) => x.categoria === category));
-      }, 3000);
-    });
-    data
-      .then((res) => {
-        setResultado(res);
+    fetch("../db.json", {
+      method: "GET",
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        let e = data.filter((x) => x.categoria === category);
+        console.log(e);
+        setResultado(e);
       })
       .catch((error) => {
         setError(true);
@@ -107,7 +101,7 @@ function ItemListContainer({ greetings }) {
         }}
       >
         <Col className="saludo">
-          <h3>{"Hola, bienvenido a " + greetings}</h3>
+          <h3>{"Estas en la categoria " + category}</h3>
         </Col>
       </Row>
       <Row>

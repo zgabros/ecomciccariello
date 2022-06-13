@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import ItemListContainer from "./components/ItemListContainer";
+import Contact from "./components/Contact";
+import Home from "./components/Home";
 import NavBar from "./components/NavBar";
+import Product from "./components/Product";
 
 function App() {
-  const [item, setItem] = useState(0);
-
-  let greetings = "la tienda.";
-
   return (
-    <div className="App">
-      <NavBar item={item} />
-      <ItemListContainer greetings={greetings} item={item} setItem={setItem} />
-    </div>
+    <>
+      <div className="App">
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/product/:name" element={<Product />} />
+            <Route path="/categories/:category" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Contact />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </>
   );
 }
 

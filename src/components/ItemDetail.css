@@ -1,0 +1,18 @@
+.contenido {
+  padding-top: 22px;
+}
+.image {
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.image img {
+  border-radius: 8px;
+}
+
+.descripcion {
+  padding: 22px;
+  text-align: left;
+  font-weight: 500;
+  color: rgb(51, 31, 15);
+}
