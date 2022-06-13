@@ -80,7 +80,6 @@ function ItemListContainer({ greetings }) {
     setResultado([]);
     const data = new Promise((res, rej) => {
       setTimeout(() => {
-        // res(misDatos);
         !category
           ? res(misDatos)
           : res(misDatos.filter((x) => x.categoria === category));
