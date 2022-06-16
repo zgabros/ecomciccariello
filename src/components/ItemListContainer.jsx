@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
-import "./ItemListContainer.css";
-import { Container, Row, Col } from "react-bootstrap";
-import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
+import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import ItemList from "./ItemList";
+import BSCarousel from "./BSCarousel";
+import "./ItemListContainer.css";
 
 function ItemListContainer({ greetings }) {
   const [loading, setLoading] = useState(true);
@@ -11,83 +12,21 @@ function ItemListContainer({ greetings }) {
 
   const { category } = useParams();
 
-  const misDatos = [
-    {
-      id: 1,
-      nombre: "Camisa",
-      precio: "300",
-      stock: 8,
-      img: "https://placedog.net/640/470?random",
-      categoria: "hombres",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-    {
-      id: 2,
-      nombre: "Pantalon",
-      precio: "200",
-      stock: 10,
-      img: "https://placedog.net/640/470?random",
-      categoria: "hombres",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-    {
-      id: 3,
-      nombre: "Zapatos",
-      precio: "100",
-      stock: 5,
-      img: "https://placedog.net/640/470?random",
-      categoria: "mujeres",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-    {
-      id: 4,
-      nombre: "Bufanda",
-      precio: "100",
-      stock: 5,
-      img: "https://placedog.net/640/470?random",
-      categoria: "hombres",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-    {
-      id: 5,
-      nombre: "Gorrito",
-      precio: "100",
-      stock: 5,
-      img: "https://placedog.net/640/470?random",
-      categoria: "niños",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-    {
-      id: 6,
-      nombre: "Pollera",
-      precio: "500",
-      stock: 5,
-      img: "https://placedog.net/640/470?random",
-      categoria: "mujeres",
-      descripcion:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam volutpat tellus ex, quis pellentesque mi euismod eget. Ut condimentum sapien euismod commodo venenatis.",
-    },
-  ];
-
   useEffect(() => {
     setLoading(true);
     setError(false);
     setResultado([]);
-    const data = new Promise((res, rej) => {
-      setTimeout(() => {
-        !category
-          ? res(misDatos)
-          : res(misDatos.filter((x) => x.categoria === category));
-      }, 3000);
-    });
-    data
+    //fetch("../db.json", {
+    fetch("../db_makeup.json", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
       .then((res) => {
-        setResultado(res);
+        !category
+          ? setResultado(res)
+          : setResultado(res.filter((x) => x.category === category));
       })
       .catch((error) => {
         setError(true);
@@ -99,26 +38,17 @@ function ItemListContainer({ greetings }) {
   }, [category]);
 
   return (
-    <Container className="saludos">
+    <Container>
+      <BSCarousel resultado={resultado} />
+
       <Row
         style={{
-          padding: "20px",
-        }}
-      >
-        <Col className="saludo">
-          <h3>{"Hola, bienvenido a " + greetings}</h3>
-        </Col>
-      </Row>
-      <Row>
-        <ItemList loading={loading} error={error} resultado={resultado} />
-      </Row>
-      <Row
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 3fr",
           padding: "20px",
         }}
       ></Row>
+      <Row>
+        <ItemList loading={loading} error={error} resultado={resultado} />
+      </Row>
     </Container>
   );
 }
