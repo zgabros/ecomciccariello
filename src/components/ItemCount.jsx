@@ -1,16 +1,27 @@
-import React, { useState } from "react";
-import { Button, ButtonGroup, Card, ListGroup } from "react-bootstrap";
-import { Col, Row } from "react-bootstrap";
+import { useContext } from "react";
+import {
+  Button,
+  ButtonGroup,
+  Card,
+  Col,
+  ListGroup,
+  Row,
+} from "react-bootstrap";
+import { MiContexto } from "./context/CartContext";
 import "./ItemCount.css";
 
-function ItemCount({ initial, stock, onAdd, onReset }) {
-  const [pedido, setPedido] = useState(initial);
+function ItemCount({ stock, qty, setQty, onAdd }) {
+  const initial = 1;
+  const restar = () => {
+    if (qty > 1) {
+      setQty(qty - 1);
+    }
+  };
 
   const sumar = () => {
-    setPedido(pedido + 1);
-  };
-  const restar = () => {
-    setPedido(pedido - 1);
+    if (qty < stock) {
+      setQty(qty + 1);
+    }
   };
 
   return (
@@ -20,7 +31,7 @@ function ItemCount({ initial, stock, onAdd, onReset }) {
           <Row>
             <Col style={{ textAlign: "left" }}>
               <>
-                {pedido > initial ? (
+                {qty > initial ? (
                   <Button variant="outline-primary" size="sm" onClick={restar}>
                     -
                   </Button>
@@ -33,12 +44,12 @@ function ItemCount({ initial, stock, onAdd, onReset }) {
             </Col>
             <Col style={{ textAlign: "center" }}>
               <Card.Text>
-                <h4>{pedido}</h4>
+                <h4>{qty}</h4>
               </Card.Text>
             </Col>
             <Col style={{ textAlign: "right" }}>
               <>
-                {pedido < stock ? (
+                {qty < stock ? (
                   <Button variant="outline-primary" size="sm" onClick={sumar}>
                     +
                   </Button>
@@ -57,8 +68,7 @@ function ItemCount({ initial, stock, onAdd, onReset }) {
                   <Button
                     variant="primary"
                     onClick={() => {
-                      onAdd(pedido);
-                      setPedido(initial);
+                      onAdd();
                     }}
                   >
                     Agregar items al carrito
@@ -69,15 +79,14 @@ function ItemCount({ initial, stock, onAdd, onReset }) {
                   </Button>
                 )}
               </>
-              <Button
+              {/* <Button
                 variant="secondary"
                 onClick={() => {
-                  onReset();
-                  setPedido(initial);
+                  qty();
                 }}
               >
                 Reset
-              </Button>
+              </Button> */}
             </ButtonGroup>
           </Row>
         </ListGroup>

@@ -1,24 +1,33 @@
 import { useState } from "react";
-import { Button, Col, Container, Image, Row } from "react-bootstrap";
+import { useContext } from "react";
+import { Image, Row, Col, Button, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { MiContexto } from "./context/CartContext";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css";
 
 function ItemDetail({ loading, error, item }) {
-  const { name, price, price_sign, description, category, api_featured_image } =
-    item;
+  const [qty, setQty] = useState(1);
+
+  const {
+    id,
+    name,
+    price,
+    price_sign,
+    description,
+    category,
+    api_featured_image,
+  } = item;
+  const { isInCart, addItem } = useContext(MiContexto);
+  const [finalizar, setFinalizar] = useState(false);
+
+  const onAdd = () => {
+    isInCart(id);
+    addItem(item, qty);
+    setFinalizar(true);
+  };
 
   const stock = 10;
-  const [itemCar, setItemCar] = useState(0);
-
-  const onAdd = (e) => {
-    setItemCar(itemCar + e);
-  };
-
-  const onReset = (e) => {
-    setItemCar(0);
-  };
-
   return (
     <>
       <div>{loading && "Cargando"}</div>
@@ -52,17 +61,7 @@ function ItemDetail({ loading, error, item }) {
               </Row>
               <Row>
                 <Col className="descripcion">
-                  <p>
-                    {description}
-                    {/* <Button
-                      variant="link"
-                      onClick={() => {
-                        setShowMore(!showMore);
-                      }}
-                    >
-                      {showMore ? "Show Less" : "Show More"}
-                    </Button> */}
-                  </p>
+                  <p>{description}</p>
                   <h4>
                     Precio: {price_sign} {price}
                   </h4>
@@ -71,15 +70,20 @@ function ItemDetail({ loading, error, item }) {
               <Row>
                 <Col className="compra">
                   <div>
-                    {itemCar === 0 ? (
+                    {finalizar === false ? (
                       <ItemCount
-                        initial={1}
-                        onAdd={onAdd}
-                        onReset={onReset}
                         stock={stock}
+                        qty={qty}
+                        setQty={setQty}
+                        onAdd={onAdd}
                       />
                     ) : (
-                      <Button as={Link} to="/cart" variant="primary">
+                      <Button
+                        as={Link}
+                        to="/cart"
+                        variant="primary"
+                        onClick={() => setFinalizar(false)}
+                      >
                         Finalizar compra
                       </Button>
                     )}

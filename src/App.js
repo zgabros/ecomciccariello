@@ -7,25 +7,28 @@ import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import Product from "./components/Product";
 import Footer from "./components/Footer";
+import CartContext from "./components/context/CartContext";
 
 function App() {
   return (
     <>
-      <div className="App">
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/home" element={<Home />} />
-            <Route path="/product/:id" element={<Product />} />
-            <Route path="/categories/:category" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<Contact />} />
-          </Routes>
-          <Footer />
-        </BrowserRouter>
-      </div>
+      <CartContext>
+        <div className="App">
+          <BrowserRouter>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/product/:id" element={<Product />} />
+              <Route path="/categories/:category" element={<Home />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="*" element={<Contact />} />
+            </Routes>
+            <Footer />
+          </BrowserRouter>
+        </div>
+      </CartContext>
     </>
   );
 }

@@ -1,8 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import { MiContexto } from "./context/CartContext";
 import "./CartWidget.css";
 import cartIcon from "../cart.svg";
 
 function CartWidget({ itemCart }) {
+  const { getItemQty } = useContext(MiContexto);
   return (
     <>
       {
@@ -15,7 +18,7 @@ function CartWidget({ itemCart }) {
         />
       }
       <span style={{ color: "grey", fontWeight: "600", padding: "5px" }}>
-        {itemCart}
+        {getItemQty()}
       </span>
     </>
   );
