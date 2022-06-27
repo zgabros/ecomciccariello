@@ -36,8 +36,8 @@ function NavBar({ item }) {
                 Todos
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link as={Link} to="/contact">
-              Contacto
+            <Nav.Link as={Link} to="/cart">
+              Cart
             </Nav.Link>
           </Nav>
           <CartWidget item={item} />

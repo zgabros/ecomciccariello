@@ -11,6 +11,7 @@ function ItemDetail({ loading, error, item }) {
 
   const {
     id,
+    stock,
     name,
     price,
     price_sign,
@@ -27,7 +28,6 @@ function ItemDetail({ loading, error, item }) {
     setFinalizar(true);
   };
 
-  const stock = 10;
   return (
     <>
       <div>{loading && "Cargando"}</div>
@@ -37,11 +37,7 @@ function ItemDetail({ loading, error, item }) {
           <Row>
             <Col xs={12} md={6} lg={8}>
               <div className="image">
-                <Image
-                  src={api_featured_image}
-                  fluid
-                  style={{ height: "100vh" }}
-                />
+                <Image src={api_featured_image} fluid />
               </div>
             </Col>
             <Col xs={12} md={6} lg={4} className="detalle">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 
-function BSCarousel({ resultado }) {
+function BSCarousel() {
   return (
     <Carousel>
       <Carousel.Item>

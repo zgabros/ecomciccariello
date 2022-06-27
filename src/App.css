@@ -4,3 +4,7 @@
   background-color: rgb(236, 236, 236);
   min-height: 90vh;
 }
+
+.contentContainer {
+  margin-top: 16px;
+}

@@ -25,8 +25,6 @@ function CartContext({ children }) {
     }
   };
 
-  console.log(cart);
-
   const emptyCart = () => {
     setCart([]);
   };

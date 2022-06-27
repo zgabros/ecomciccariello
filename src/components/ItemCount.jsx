@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import {
   Button,
   ButtonGroup,
@@ -7,7 +6,6 @@ import {
   ListGroup,
   Row,
 } from "react-bootstrap";
-import { MiContexto } from "./context/CartContext";
 import "./ItemCount.css";
 
 function ItemCount({ stock, qty, setQty, onAdd }) {
