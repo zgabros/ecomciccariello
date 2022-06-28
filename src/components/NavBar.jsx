@@ -39,6 +39,9 @@ function NavBar({ item }) {
             <Nav.Link as={Link} to="/cart">
               Cart
             </Nav.Link>
+            <Nav.Link as={Link} to="/checkout">
+              CheckOut
+            </Nav.Link>
           </Nav>
           <CartWidget item={item} />
         </Navbar.Collapse>

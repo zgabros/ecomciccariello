@@ -3,6 +3,7 @@ import CartListItem from "./CartListItem";
 import { Button, ListGroup } from "react-bootstrap";
 import { useContext } from "react";
 import { MiContexto } from "./context/CartContext";
+import { Link } from "react-router-dom";
 
 function CartList({ loading, error, cartObjects }) {
   const { emptyCart, getItemQty, getItemPrice } = useContext(MiContexto);
@@ -58,7 +59,9 @@ function CartList({ loading, error, cartObjects }) {
                 </Button>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button variant="success">Pagar</Button>
+                <Button variant="success" as={Link} to="/checkout">
+                  Pagar
+                </Button>
               </ListGroup.Item>
             </ListGroup>
           </>
