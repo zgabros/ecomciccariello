@@ -1,8 +1,17 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 export const MiContexto = createContext({});
 
 function CartContext({ children }) {
   const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    let storagedCartItem = Object.values(localStorage);
+    if (storagedCartItem.length > 0) {
+      let arrayOfItems = [];
+      storagedCartItem.map((x) => arrayOfItems.push(JSON.parse(x)));
+      setCart(arrayOfItems);
+    }
+  }, []);
 
   const isInCart = (id) => {
     return cart.some((x) => x.id === id);
@@ -20,16 +29,20 @@ function CartContext({ children }) {
       const auxArray = [...cart];
       auxArray[productIndex].qty += qty;
       setCart(auxArray);
+      localStorage.setItem(newItem.id, JSON.stringify(auxArray[productIndex]));
     } else {
       setCart([...cart, newItem]);
+      localStorage.setItem(newItem.id, JSON.stringify(newItem));
     }
   };
 
   const emptyCart = () => {
     setCart([]);
+    localStorage.clear();
   };
 
   const deleteItem = (id) => {
+    localStorage.removeItem(id);
     return setCart(cart.filter((x) => x.id !== id));
   };
 
