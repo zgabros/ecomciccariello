@@ -95,6 +95,7 @@ function ItemDetail({ loading, error, item }) {
                       />
                     )}
                   </div>
+                  <div></div>
                 </Col>
               </Row>
             </Col>
