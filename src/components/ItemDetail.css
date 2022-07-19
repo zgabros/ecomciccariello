@@ -3,11 +3,13 @@
 }
 .image {
   padding: 8px;
-  border-radius: 8px;
+  border-bottom: 1px solid rgb(143, 143, 143);
 }
 
 .image img {
   border-radius: 8px;
+  max-height: 600px;
+  min-height: 500px;
 }
 
 .detalle {

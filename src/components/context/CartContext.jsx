@@ -10,6 +10,9 @@ function CartContext({ children }) {
       let arrayOfItems = [];
       storagedCartItem.map((x) => arrayOfItems.push(JSON.parse(x)));
       setCart(arrayOfItems);
+    } else {
+      let arrayOfItems = [];
+      setCart(arrayOfItems);
     }
   }, []);
 

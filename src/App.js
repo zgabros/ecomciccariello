@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Contact from "./components/Contact";
 import Cart from "./components/Cart";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
@@ -36,7 +35,6 @@ function App() {
               <Route path="/categories/:category" element={<Home />} />
               <Route path="/cart" element={<Cart />} />
               <Route path="/checkout" element={<CheckOut />} />
-              <Route path="*" element={<Contact />} />
             </Routes>
             <Footer />
           </BrowserRouter>

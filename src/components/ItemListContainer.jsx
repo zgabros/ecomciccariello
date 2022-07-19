@@ -1,15 +1,8 @@
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import {
-  collection,
-  getDocs,
-  getFirestore,
-  query,
-  where,
-} from "firebase/firestore";
 import ItemList from "./ItemList";
-import BSCarousel from "./BSCarousel";
 import "./ItemListContainer.css";
 
 function ItemListContainer() {
@@ -23,7 +16,6 @@ function ItemListContainer() {
   const db = getFirestore();
 
   const collectionProd = collection(db, coleccion);
-  //const collectionProdCat = query(collection(db, coleccion), where("category", "===", "lip_gloss"));
 
   useEffect(() => {
     setLoading(true);
@@ -45,30 +37,6 @@ function ItemListContainer() {
         setLoading(false);
       });
   }, [category]);
-
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   setResultado([]);
-  //   fetch("../db_makeup.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((res) => {
-  //       !category
-  //         ? setResultado(res)
-  //         : setResultado(res.filter((x) => x.category === category));
-  //     })
-  //     .catch((error) => {
-  //       setError(true);
-  //       console.log(error);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [category]);
 
   return (
     <Container className="contentContainer">

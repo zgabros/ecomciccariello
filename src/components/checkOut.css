@@ -1,0 +1,48 @@
+.checkout {
+  background-color: cadetblue;
+  padding: 16px;
+  border-radius: 16px;
+  min-height: 80vh;
+}
+
+form {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+  align-items: center;
+}
+
+form input {
+  width: 100%;
+  padding: 16px;
+  background-color: #edf2f7;
+  border: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+  text-align: center;
+  border: 2px solid #a0aec0;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+form textarea {
+  width: 100%;
+  padding: 16px;
+  background-color: #edf2f7;
+  border: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+  border: 2px solid #a0aec0;
+  box-sizing: border-box;
+  height: 150px;
+}
+
+form button[type="submit"] {
+  background-color: #48bb78;
+  color: #ffffff;
+  font-size: 14px;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  border-radius: 15px;
+}

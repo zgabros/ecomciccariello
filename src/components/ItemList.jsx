@@ -1,11 +1,12 @@
 import React from "react";
 import Item from "./Item";
 import "./ItemList.css";
+import Loading from "./Loading";
 
 function ItemList({ loading, error, resultado }) {
   return (
     <>
-      <div>{loading && "Cargando"}</div>
+      <div>{loading && <Loading />}</div>
       <div>{error && "error"}</div>
       <article className="contenedorTarjetas">
         {resultado &&

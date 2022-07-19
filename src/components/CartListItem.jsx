@@ -1,6 +1,5 @@
-import React from "react";
-import { Card, Button, ListGroup } from "react-bootstrap";
-import { useContext } from "react";
+import React, { useContext } from "react";
+import { Button, ListGroup } from "react-bootstrap";
 import { MiContexto } from "./context/CartContext";
 
 function CartListItem({ item }) {

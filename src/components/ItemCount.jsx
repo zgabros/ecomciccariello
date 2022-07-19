@@ -77,14 +77,6 @@ function ItemCount({ stock, qty, setQty, onAdd }) {
                   </Button>
                 )}
               </>
-              {/* <Button
-                variant="secondary"
-                onClick={() => {
-                  qty();
-                }}
-              >
-                Reset
-              </Button> */}
             </ButtonGroup>
           </Row>
         </ListGroup>

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { MiContexto } from "./context/CartContext";
 import ItemCount from "./ItemCount";
 import "./ItemDetail.css";
+import Loading from "./Loading";
 
 function ItemDetail({ loading, error, item }) {
   const [qty, setQty] = useState(1);
@@ -19,18 +20,16 @@ function ItemDetail({ loading, error, item }) {
     category,
     api_featured_image,
   } = item;
-  const { isInCart, addItem } = useContext(MiContexto);
-  const [finalizar, setFinalizar] = useState(false);
+  const { isInCart, addItem, cart } = useContext(MiContexto);
 
   const onAdd = () => {
     isInCart(id);
     addItem(item, qty);
-    setFinalizar(true);
   };
 
   return (
     <>
-      <div>{loading && "Cargando"}</div>
+      <div>{loading && <Loading />}</div>
       <div>{error && "error"}</div>
       {item && (
         <Container fluid className="contenido">
@@ -66,22 +65,20 @@ function ItemDetail({ loading, error, item }) {
               <Row>
                 <Col className="compra">
                   <div>
-                    {finalizar === false ? (
+                    {cart.some((x) => x.id === id) ? (
+                      <>
+                        <p>El artículo ya está en el carrito</p>
+                        <Button as={Link} to="/cart" variant="primary">
+                          Finalizar compra
+                        </Button>
+                      </>
+                    ) : (
                       <ItemCount
                         stock={stock}
                         qty={qty}
                         setQty={setQty}
                         onAdd={onAdd}
                       />
-                    ) : (
-                      <Button
-                        as={Link}
-                        to="/cart"
-                        variant="primary"
-                        onClick={() => setFinalizar(false)}
-                      >
-                        Finalizar compra
-                      </Button>
                     )}
                   </div>
                 </Col>

@@ -39,29 +39,6 @@ function ItemDetailContainer() {
       });
   }, [id]);
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   setItem([]);
-  //   fetch("../db_makeup.json", {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       let e = data.find((x) => x.id == id);
-  //       setItem(e);
-  //     })
-  //     .catch((error) => {
-  //       setError(true);
-  //       console.log(error);
-  //     })
-  //     .finally(() => {
-  //       setLoading(false);
-  //     });
-  // }, [id]);
-
   return (
     <Container className="contentContainer">
       <Row>

@@ -15,25 +15,14 @@ function Item({ item }) {
   } = item;
   return (
     <Card className="ItemCard">
-      <Card.Img src={api_featured_image} />
+      <Card.Img src={api_featured_image} className="ItemImage" />
       <Card.Body>
         <Card.Title>{name}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
           Precio: {price_sign} {price}
         </Card.Subtitle>
         <Card.Text>
-          <p
-            style={{
-              overflow: "hidden",
-              lineHeight: "1.5",
-              maxHeight: "6rem",
-              display: "-webkit-box",
-              textOverflow: "ellipsis",
-              WebkitLineClamp: "3",
-            }}
-          >
-            {description}
-          </p>
+          <p className="ItemDesc">{description}</p>
         </Card.Text>
         <ListGroup>
           <Button as={Link} to={`/product/${id}`}>

@@ -4,13 +4,14 @@ import { Button, ListGroup } from "react-bootstrap";
 import { useContext } from "react";
 import { MiContexto } from "./context/CartContext";
 import { Link } from "react-router-dom";
+import Loading from "./Loading";
 
 function CartList({ loading, error, cartObjects }) {
   const { emptyCart, getItemQty, getItemPrice } = useContext(MiContexto);
 
   return (
     <>
-      <div>{loading && "Cargando"}</div>
+      <div>{loading && <Loading />}</div>
       <div>{error && "error"}</div>
       <div>
         {cartObjects && (

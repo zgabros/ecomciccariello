@@ -6,3 +6,21 @@
 .ItemCard:hover {
   box-shadow: 0px 5px 10px rgb(184, 184, 184);
 }
+
+.ItemDesc {
+  overflow: hidden;
+  line-height: 1.5;
+  max-height: 8rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  text-align: left;
+  hyphens: auto;
+  font-size: small;
+  color: rgb(63, 63, 63);
+  padding: 6px;
+}
+
+.ItemImage {
+  height: 280px;
+  object-fit: scale-down;
+}
