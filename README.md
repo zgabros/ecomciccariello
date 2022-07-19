@@ -36,5 +36,5 @@ crea el build del proyecto para enviarse a producción
 # Deploy
 
 El proyecto se puede ver en su versión de producción en los siguientes enlaces:
-https://ecomciccariello-f6pn7wl7o-zgabros.vercel.app/ plataforma Vercel
+https://ecomciccariello-9bca78lcn-zgabros.vercel.app/ plataforma Vercel
 https://apiecomciccariello.web.app/ plataforma Firebase
