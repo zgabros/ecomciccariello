@@ -19,6 +19,8 @@ function ItemDetail({ loading, error, item }) {
     description,
     category,
     api_featured_image,
+    website_link,
+    product_link,
   } = item;
   const { isInCart, addItem, cart } = useContext(MiContexto);
 
@@ -51,6 +53,18 @@ function ItemDetail({ loading, error, item }) {
                     >
                       {category}
                     </Link>
+                  </h5>
+                  <h5>
+                    Web:{" "}
+                    <a href={website_link} style={{ textDecoration: "none" }}>
+                      Link
+                    </a>
+                  </h5>
+                  <h5>
+                    Producto:{" "}
+                    <a href={product_link} style={{ textDecoration: "none" }}>
+                      Producto
+                    </a>
                   </h5>
                 </Col>
               </Row>
